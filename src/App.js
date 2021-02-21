@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Login from './Login';
 import { getTokenFromUrl } from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -9,7 +9,7 @@ import { useDataLayerValue } from './DataLayer';
 const spotify = new SpotifyWebApi();
 
 function App() {
-    const [{ user, token }, dispatch] = useDataLayerValue();
+    const [{ token }, dispatch] = useDataLayerValue();
 
     useEffect(() => {
         const hash = getTokenFromUrl();
@@ -28,16 +28,15 @@ function App() {
             spotify.getMe().then((user) => {
                 dispatch({
                     type: 'SET_USER',
-                    user: user,
+                    // user: user,
                 });
             });
             spotify.getUserPlaylists().then((playlists) => {
-                let randomNum =
+                let random =
                     playlists.items[
                         Math.floor(Math.random() * playlists.items.length)
                     ];
-                console.log(randomNum.id);
-                spotify.getPlaylist(randomNum.id).then((response) => {
+                spotify.getPlaylist(random.id).then((response) => {
                     dispatch({
                         type: 'SET_RANDOM',
                         random_thing: response,
@@ -49,6 +48,7 @@ function App() {
                 });
             });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // console.log('person: ', user);

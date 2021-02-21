@@ -8,8 +8,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SongRow from './SongRow';
 
 function Body({ spotify }) {
-    const [{ random_thing }, dispatch] = useDataLayerValue();
-    console.log(random_thing);
+    const [{ random_thing }] = useDataLayerValue();
     return (
         <div className='body'>
             <Header spotify={spotify} />
