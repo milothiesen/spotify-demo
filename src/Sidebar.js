@@ -4,7 +4,6 @@ import SidebarOption from './SidebarOption';
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { useDataLayerValue } from './DataLayer';
 
 function Sidebar() {
@@ -24,12 +23,8 @@ function Sidebar() {
             <strong className='sidebar_title'>PLAYLISTS</strong>
             <hr />
             {playlists?.items?.map((playlist) => (
-                <SidebarOption title={playlist.name} />
+                <SidebarOption key={playlist.id} title={playlist.name} />
             ))}
-            {/* <SidebarOption title='hiphop' />
-            <SidebarOption title='hiphop' />
-            <SidebarOption title='hiphop' />
-            <SidebarOption title='hiphop' /> */}
         </div>
     );
 }

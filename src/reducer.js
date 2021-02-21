@@ -4,14 +4,12 @@ export const initialState = {
     playing: false,
     item: null,
     // SET token back to null when finished devleoping
-    // token:
-    //     'BQAl3rAgkfoYp0mYVgl9pwh4rqWVcBdJ6xsoAjnKlOs4-0z7iVfKQQjFEPyZc6Zhl0wcCHXCbde5fE1D4cOUn1Wrdh_CZkCXlaVGC30hKSQac6vNUgKpPiPpUE3nevbwNJxAQqoEhY894XWCgQ2B7HKrZa7shbjW',
+    token: null,
+    random: {},
 };
 
 const reducer = (state, action) => {
     console.log(action);
-
-    // Action -> type, [payload]
 
     switch (action.type) {
         case 'SET_USER':
@@ -34,6 +32,11 @@ const reducer = (state, action) => {
                 ...state,
                 discover_weekly: action.discover_weekly,
             };
+        // case 'SET_RANDOM':
+        //     return {
+        //         ...state,
+        //         random: action.random,
+        //     };
         default:
             return state;
     }

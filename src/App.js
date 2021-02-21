@@ -32,22 +32,27 @@ function App() {
                 });
             });
             spotify.getUserPlaylists().then((playlists) => {
+                let random =
+                    playlists.items[
+                        Math.floor(Math.random() * playlists.items.length)
+                    ];
+                console.log(random.id);
+                spotify.getPlaylist(random.id).then((response) => {
+                    dispatch({
+                        type: 'SET_DISCOVER_WEEKLY',
+                        discover_weekly: response,
+                    });
+                });
                 dispatch({
                     type: 'SET_PLAYLISTS',
                     playlists: playlists,
                 });
             });
-            spotify.getPlaylist('37i9dQZEVXcWjdCKdzoxyV').then((response) => {
-                dispatch({
-                    type: 'SET_DISCOVER_WEEKLY',
-                    discover_weekly: response,
-                });
-            });
         }
     }, []);
 
-    console.log('person: ', user);
-    console.log('token: ', token);
+    // console.log('person: ', user);
+    // console.log('token: ', token);
 
     return (
         // BEM

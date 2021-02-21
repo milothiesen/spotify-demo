@@ -8,7 +8,7 @@
 }
 
 .songRow:hover {
-    curosr: pointer;
+    cursor: pointer;
     background-color: black;
     opacity: 0.8;
 }

@@ -13,15 +13,14 @@ function Footer() {
     return (
         <div className='footer'>
             <div className='footer_left'>
-                {/* album image */}
                 <img
                     className='footer_albumLogo'
-                    src='https://upload.wikimedia.org/wikipedia/en/2/2e/Usher-yeah.jpg'
+                    src='https://i.scdn.co/image/ab67616d0000485119bc79034b8b35bcbc2aca58'
                     alt=''
                 />
                 <div className='footer_songInfo'>
-                    <h4>Yeah!</h4>
-                    <p>Usher</p>
+                    <h4>Lemonade</h4>
+                    <p>Sophie</p>
                 </div>
             </div>
 
