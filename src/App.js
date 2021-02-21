@@ -32,15 +32,15 @@ function App() {
                 });
             });
             spotify.getUserPlaylists().then((playlists) => {
-                let random =
+                let randomNum =
                     playlists.items[
                         Math.floor(Math.random() * playlists.items.length)
                     ];
-                console.log(random.id);
-                spotify.getPlaylist(random.id).then((response) => {
+                console.log(randomNum.id);
+                spotify.getPlaylist(randomNum.id).then((response) => {
                     dispatch({
-                        type: 'SET_DISCOVER_WEEKLY',
-                        discover_weekly: response,
+                        type: 'SET_RANDOM',
+                        random_thing: response,
                     });
                 });
                 dispatch({

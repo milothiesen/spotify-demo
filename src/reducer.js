@@ -32,11 +32,11 @@ const reducer = (state, action) => {
                 ...state,
                 discover_weekly: action.discover_weekly,
             };
-        // case 'SET_RANDOM':
-        //     return {
-        //         ...state,
-        //         random: action.random,
-        //     };
+        case 'SET_RANDOM':
+            return {
+                ...state,
+                random_thing: action.random_thing,
+            };
         default:
             return state;
     }
